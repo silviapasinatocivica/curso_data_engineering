@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'Analytics_Silvia_Data_Engineer'
 version: '1.0.0'
 config-version: 2
 
@@ -36,7 +36,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
+  Analytics_Silvia_Data_Engineer:
     # Applies to all files under models/example/
     example:
       +materialized: table
+
+#esto del seeds es solo un test, no me crea la db "SEEDS" a secas, pero da igual, no lo usaré nunca
+seeds:
+  Analytics_Silvia_Data_Engineer:
+    +database: "SPASINATO_DEMO_BRZ_DB"
+    +schema: "SEEDS"
