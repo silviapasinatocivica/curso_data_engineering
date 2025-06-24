@@ -1,10 +1,3 @@
-{{
-  config(
-    schema='sql_server_dbo'
-  )
-}}
-
-
 with 
 
 source as (

@@ -1,9 +1,3 @@
-{{
-  config(
-    schema='google_sheets'
-  )
-}}
-
 with
 
     source as (select * from {{ source("google_sheets", "budget") }}),

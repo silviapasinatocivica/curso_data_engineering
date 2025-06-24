@@ -38,15 +38,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   Analytics_Silvia_Data_Engineer:
     staging:
+      materialized: table
+      +database: "{{env_var('DBT_ENVIRONMENT')}}_DEMO_SLVR_DB"
+
       google_sheets: 
-        +database: "SPASINATO_DEMO_SLVR_DB"  
         +schema: "google_sheets"
-        +materialized: view
 
       sql_server_dbo:
-        +database: "SPASINATO_DEMO_SLVR_DB"
         +schema: "sql_server_dbo"
-        +materialized: view
+
+    marts:
+      materialized: table
+      +database: "{{env_var('DBT_ENVIRONMENT')}}_DEMO_GLD_DB"
+
 
 #esto del seeds es solo un test, no lo usaré nunca
 seeds:
