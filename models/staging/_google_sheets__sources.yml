@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: google_sheets
+    schema: google_sheets
+    database: spasinato_demo_brz_db
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+    
+    config:
+      freshness:
+        warn_after: {count: 250, period: day}  ##test para que me salga SUCCESS (en casos reales NO quiero freshness con datos de hace 8 meses o un año, claramente) 
+        error_after: {count: 365, period: day} ##idem
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: budget
+        columns:
+          - name: _row
+            data_type: number
+          - name: quantity
+            data_type: number
+          - name: month
+            data_type: date
+          - name: product_id
+            data_type: varchar
+          - name: _fivetran_synced
+            data_type: timestamp_tz
