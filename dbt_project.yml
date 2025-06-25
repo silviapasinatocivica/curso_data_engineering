@@ -55,5 +55,10 @@ models:
 #esto del seeds es solo un test, no lo usaré nunca
 seeds:
   Analytics_Silvia_Data_Engineer:
-    +database: "SPASINATO_DEMO_BRZ_DB"
+    +database: "{{env_var('DBT_ENVIRONMENT')}}_DEMO_BRZ_DB"
     +schema: "SEEDS"
+
+snapshots:
+  Analytics_Silvia_Data_Engineer:
+    +database: "{{env_var('DBT_ENVIRONMENT')}}_DEMO_BRZ_DB"
+    +schema: "SNAPSHOTS"
