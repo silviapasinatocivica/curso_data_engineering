@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_google_sheets__budget
-    description: "This table contains the row data of products PLUS de SURROGATE KEY, created with the md5 function, with the columns _row, month, product_id"
+    description: "This table contains the row data of products PLUS 2 columns of SURROGATE KEY, with the columns _row, month, product_id. Actually, this is ONLY A TEST, to use 2 different methods to create a SK. It doesn't make sense to have both columnas at the same time, but since it's just a test, I'll keep them"
     columns:
       - name: _row
         data_type: number
@@ -10,7 +10,11 @@ models:
 
       - name: prod_per_month
         data_type: varchar
-        description: "SURROGATE KEY, composed BY the columns _row, month, product_id"
+        description: "SURROGATE KEY, created by the function 'md5', composed BY the columns _row, month, product_id"
+
+      - name: prod_per_month2
+        data_type: varchar
+        description: "another way to create the same SK, but this time using a macro from dbt_utils"
 
       - name: quantity
         data_type: number

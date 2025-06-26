@@ -5,6 +5,7 @@ with budget_raw as (
 select   
     _row,
     md5(_row||month||product_id) as prod_per_month,
+    {{ dbt_utils.generate_surrogate_key(['_row', 'month','product_id']) }} as prod_per_month2,
     quantity,
     month,
     product_id,
