@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: prueba_gold_orders
+    description: ""
+    columns:
+      - name: product_name
+        data_type: varchar
+        description: ""
+
+      - name: shipping_service
+        data_type: varchar
+        description: ""
+
+      - name: coste_total_por_shipping_service
+        data_type: float
+        description: ""
+
+      - name: cantidad_total_por_producto
+        data_type: number
+        description: ""

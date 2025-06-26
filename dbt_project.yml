@@ -56,6 +56,9 @@ models:
       materialized: table # All mart models are materialized as tables for query performance
       +database: "{{env_var('DBT_ENVIRONMENT')}}_DEMO_GLD_DB" # All marts models use the environment-specific gold database
 
+      business:
+        +schema: "business"
+
 #esto del seeds es solo un test, no lo usaré nunca
 seeds:
   Analytics_Silvia_Data_Engineer:
