@@ -1,12 +1,12 @@
 version: 2
 
 models:
-  - name: stg_google_sheets__budget
-    description: ""
+  - name: base_google_sheets__budget
+    description: "This table contains the row data of products, where each product_id is present for each month"
     columns:
       - name: _row
         data_type: number
-        description: ""
+        description: "unique field, it's a count row"
 
       - name: quantity
         data_type: number
@@ -18,8 +18,9 @@ models:
 
       - name: product_id
         data_type: varchar
-        description: ""
+        description: "there's a product_if for each month"
 
       - name: _fivetran_synced
         data_type: timestamp_tz
         description: ""
+

@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_google_sheets__budget
+    description: "This table contains the row data of products PLUS de SURROGATE KEY, created with the md5 function, with the columns _row, month, product_id"
+    columns:
+      - name: _row
+        data_type: number
+        description: "unique field, it's a count row"
+
+      - name: prod_per_month
+        data_type: varchar
+        description: "SURROGATE KEY, composed BY the columns _row, month, product_id"
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: month
+        data_type: date
+        description: ""
+
+      - name: product_id
+        data_type: varchar
+        description: "there's a product_if for each month"
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        description: ""
+
+    tests:
+      # Add primary key test for the composite key
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - _row
+            - month
+            - product_id
+          config:
+            severity: error

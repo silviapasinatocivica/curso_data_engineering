@@ -1,3 +1,9 @@
+{{- 
+    config(
+        database=env_var('DBT_ENVIRONMENT') ~ '_DEMO_BRZ_DB'
+        )
+-}}
+
 with
 
     source as (select * from {{ source("google_sheets", "budget") }}),
