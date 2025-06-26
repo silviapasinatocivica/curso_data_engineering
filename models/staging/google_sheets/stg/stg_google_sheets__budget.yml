@@ -26,7 +26,12 @@ models:
 
       - name: product_id
         data_type: varchar
-        description: "there's a product_if for each month"
+        description: "there's a product_if for each month. Clave foránea que referencia a la tabla products de sql_Server_dbo"
+        tests:
+          #verifica que cada product_id de aquí se referencie con un product_id de la tabla products del schema sql_server_dbo
+          - relationships:
+              field: product_id
+              to: ref('stg_sql_server_dbo__products')
 
       - name: _fivetran_synced
         data_type: timestamp_tz

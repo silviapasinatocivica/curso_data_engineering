@@ -50,6 +50,10 @@ models:
       - name: user_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+              field: user_id
+              to: ref('stg_sql_server_dbo__users')
 
       - name: product_id
         data_type: varchar
@@ -81,10 +85,18 @@ models:
       - name: order_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+              field: order_id
+              to: ref('stg_sql_server_dbo__orders')
 
       - name: product_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+              field: product_id
+              to: ref('stg_google_sheets__budget')
 
       - name: quantity
         data_type: number
@@ -116,6 +128,10 @@ models:
       - name: address_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+              field: address_id
+              to: ref('stg_sql_server_dbo__addresses')
 
       - name: created_at
         data_type: timestamp_tz
@@ -136,6 +152,10 @@ models:
       - name: user_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+              field: user_id
+              to: ref('stg_sql_server_dbo__users')
 
       - name: order_total
         data_type: float
@@ -194,6 +214,10 @@ models:
       - name: promo_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+              field: promo_id
+              to: ref('stg_sql_server_dbo__orders')
 
       - name: discount
         data_type: number
